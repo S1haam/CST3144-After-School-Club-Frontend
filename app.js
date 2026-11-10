@@ -146,6 +146,26 @@ const app = createApp({
         lesson.spaces--;
       }
     },
+
+    // removes 1 lesson space from shopping cart
+    // index identifies the position of the selected cart item 
+    removeFromCart(index) {
+
+      // gets id of the removed lesson
+      const lessonId = this.cart[index];
+
+      // finds the matching lesson in lesson array
+      const lesson = this.lessons.find(
+        lesson => lesson.id === lessonId
+      );
+      // removes one item from cart array
+      this.cart.splice(index, 1);
+
+      // restores one available space to matching lesson
+      if (lesson) {
+        lesson.spaces++;
+      }
+    },
   },
 });
 

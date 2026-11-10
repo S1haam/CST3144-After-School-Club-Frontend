@@ -81,13 +81,19 @@
 
 <h2>YOUR SHOPPING CART</h2>
 
-<!-- repeats each lesson space stored in the cart array -->
+<!-- displays each selected lesson in the shopping cart -->
 <div v-for="(lessonId, index) in cart" :key="index">
 
-  <!-- finds and shows the subject for each lesson id -->
-   <p>
+  <!-- displays the subject of the selected lesson -->
+  <p>
     {{ lessons.find(lesson => lesson.id === lessonId).subject }}
-   </p>
+  </p>
+
+  <!-- removes 1 lesson space from the shopping cart -->
+  <button v-on:click="removeFromCart(index)">
+    Remove
+  </button>
+
 </div>
 
  <!--returns the user to activities page  -->
