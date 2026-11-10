@@ -16,11 +16,11 @@
       <header class="site-header">
         <h1>After School Fun</h1>
 
-        <!-- displays the number of lesson spaces currently in the cart -->
-<!-- the cart button remains disabled until at least one lesson is added -->
-<button :disabled="cart.length === 0">
-  Buy Lessons ({{ cart.length }})
-</button>
+        <!-- open/closes shop cart -->
+        <!-- button disabled when no lessons have been added  -->
+        <button v-on:click="toggleCart()" :disabled="cart.length === 0">
+          Buy Lessons({{ cart.length }})
+        </button>
       </header>
 
       <!-- homepage -->
@@ -74,6 +74,26 @@
             </button>
           </div>
         </div>
+      </main>
+
+      <!-- displays the shopping cart when the cart page is selected -->
+      <main v-else-if="currentPage === 'cart'" class="cart-page">
+
+<h2>YOUR SHOPPING CART</h2>
+
+<!-- repeats each lesson space stored in the cart array -->
+<div v-for="(lessonId, index) in cart" :key="index">
+
+  <!-- finds and shows the subject for each lesson id -->
+   <p>
+    {{ lessons.find(lesson => lesson.id === lessonId).subject }}
+   </p>
+</div>
+
+ <!--returns the user to activities page  -->
+ <button v-on:click="changePage('activities')">
+  Continue Shopping 
+ </button>
       </main>
     </div>
 

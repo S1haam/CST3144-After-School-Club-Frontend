@@ -115,6 +115,26 @@ const app = createApp({
       this.currentPage = page;
     },
 
+    // changes between shopping art and acivities page
+    // function is called when user clicks buy lessons
+    toggleCart() {
+
+      // stops cart from working when empt
+      if (this.cart.length === 0) {
+        return;
+      }
+      // checks if user is a;ready viewing the cart
+      if (this.currentPage === "cart") {
+        // returns user tp acitivities page
+        this.currentPage = "activities";
+
+      } else {
+        // opens cart
+        this.currentPage = "cart";
+      }
+  
+    },
+
     // adds one available lesson space tot he shopping cart
     // lesson is object chosen by user
     addToCart(lesson) {
