@@ -4,8 +4,15 @@ const app = createApp({
   // returns data used
   data() {
     return {
-      // stores info from lesson 1
+      // stores which page is currently being displayed
+      // the website starts on the homepage
+      currentPage: "home",
 
+      // stores ids of leesons added to the shopping cart
+      // each id represents one space purchased
+      cart: [],
+
+      // stores the ten after-school lessons
       lessons: [
         {
           id: 1,
@@ -13,7 +20,7 @@ const app = createApp({
           location: "Edmonton Green",
           price: 25,
           spaces: 5,
-          image:"images/mathematics.jpg"
+          image: "images/mathematics.jpg",
         },
 
         {
@@ -22,7 +29,7 @@ const app = createApp({
           location: "Enfield Town",
           price: 10,
           spaces: 5,
-          image:"images/english.jpg"
+          image: "images/english.jpg",
         },
 
         {
@@ -31,7 +38,7 @@ const app = createApp({
           location: "Waltham Cross",
           price: 25,
           spaces: 5,
-          image:"images/science.jpg"
+          image: "images/science.jpg",
         },
 
         {
@@ -40,7 +47,7 @@ const app = createApp({
           location: "Hertfordshire",
           price: 25,
           spaces: 5,
-          image:"images/ict.jpg"
+          image: "images/ict.jpg",
         },
 
         {
@@ -49,7 +56,7 @@ const app = createApp({
           location: "Cheshunt",
           price: 10,
           spaces: 5,
-          image:"images/pe.jpg"
+          image: "images/pe.jpg",
         },
 
         {
@@ -58,7 +65,7 @@ const app = createApp({
           location: "Edmonton Green",
           price: 10,
           spaces: 5,
-          image:"images/drama.jpg"
+          image: "images/drama.jpg",
         },
 
         {
@@ -67,7 +74,7 @@ const app = createApp({
           location: "Enfield Town",
           price: 10,
           spaces: 5,
-          image:"images/french.jpg"
+          image: "images/french.jpg",
         },
 
         {
@@ -76,7 +83,7 @@ const app = createApp({
           location: "Waltham Cross",
           price: 10,
           spaces: 5,
-          image:"images/bsl.jpg"
+          image: "images/bsl.jpg",
         },
 
         {
@@ -85,7 +92,7 @@ const app = createApp({
           location: "Hertfordshire",
           price: 10,
           spaces: 5,
-          image:"images/art.jpg"
+          image: "images/art.jpg",
         },
 
         {
@@ -94,11 +101,33 @@ const app = createApp({
           location: "Cheshunt",
           price: 15,
           spaces: 5,
-          image:"images/food.jpg"
+          image: "images/food.jpg",
         },
       ],
     };
   },
+
+  methods: {
+    // changes the page displayed by the application
+    // page is the name of the view the user wants to open
+    // updating currentpage makes vue display the selected view
+    changePage(page) {
+      this.currentPage = page;
+    },
+
+    // adds one available lesson space tot he shopping cart
+    // lesson is object chosen by user
+    addToCart(lesson) {
+      // checks lesson has available spaces
+      if (lesson.spaces > 0) {
+        // stores selected lesson id in cart array
+        this.cart.push(lesson.id);
+        // reduces the remaining avaiblabilty by 1
+        lesson.spaces--;
+      }
+    },
+  },
 });
-// connects vue app to html element app
+
+// connects the vue application to the html element with id app
 app.mount("#app");

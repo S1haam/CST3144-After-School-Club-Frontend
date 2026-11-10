@@ -10,21 +10,71 @@
   </head>
 
   <body>
-    <!-- vue here is controlled by vue -->
+    <!-- vue controls the content inside this element -->
     <div id="app">
-      <h1>After School Fun</h1>
+      <!-- header displayed on every page -->
+      <header class="site-header">
+        <h1>After School Fun</h1>
 
-      <!-- repeats lesson info for every lesson in array -->
-      <div v-for="lesson in lessons" :key="lesson.id">
+        <!-- displays the number of lesson spaces currently in the cart -->
+<!-- the cart button remains disabled until at least one lesson is added -->
+<button :disabled="cart.length === 0">
+  Buy Lessons ({{ cart.length }})
+</button>
+      </header>
 
-        <!--displays image -->
-        <img :src="lesson.image" :alt="lesson.subject" width="200">
+      <!-- homepage -->
+      <main v-if="currentPage === 'home'" class="home-page">
+        <h2>Welcome to After School Fun!</h2>
 
-        <h2>{{ lesson.subject }}</h2>
-        <p>Location: {{ lesson.location }}</p>
-        <p>Price: £{{ lesson.price }}</p>
-        <p>Available Space: {{ lesson.spaces }}</p>
-      </div>
+        <p>
+          Discover exciting after-school activities where students can learn new
+          skills, explore their interests and have fun.
+        </p>
+
+        <!-- opens the activities page -->
+        <button v-on:click="changePage('activities')">
+          Explore Activities
+        </button>
+      </main>
+
+      <!-- activities page -->
+      <main v-else-if="currentPage === 'activities'">
+        <!-- returns to the homepage -->
+        <button v-on:click="changePage('home')">Back to Home</button>
+
+        <h2>ALL ACTIVITIES</h2>
+
+        <!-- displays all ten lessons -->
+        <div class="lesson-grid">
+          <!-- creates one card for each lesson -->
+          <div class="lesson-card" v-for="lesson in lessons" :key="lesson.id">
+            <!-- displays the correct lesson image -->
+            <img
+              class="lesson-image"
+              :src="lesson.image"
+              :alt="lesson.subject"
+            />
+
+            <h3>{{ lesson.subject }}</h3>
+
+            <p>Location: {{ lesson.location }}</p>
+
+            <p>Price: £{{ lesson.price }}</p>
+
+            <p>Available Spaces: {{ lesson.spaces }}</p>
+
+            <!-- adds one lesson space to the shopping cart -->
+            <!-- the button is disabled when no spaces remain -->
+            <button
+              v-on:click="addToCart(lesson)"
+              :disabled="lesson.spaces === 0"
+            >
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </main>
     </div>
 
     <!-- js -->
