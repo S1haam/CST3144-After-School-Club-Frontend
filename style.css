@@ -1,0 +1,210 @@
+/* GENERAL WEBSITE STYLING */
+
+/* includes padding and borders within an element's width */
+* {
+  box-sizing: border-box;
+}
+
+/* sets the background colour and default text styling */
+body {
+  margin: 0;
+  background-color: #d7edfc;
+  color: #142b52;
+  font-family: Arial, sans-serif;
+}
+
+/* NAVIGATION HEADER */
+
+/* positions the website title and shopping cart button */
+.header {
+  background-color: #112b57;
+  color: white;
+  padding: 23px 46px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 23px;
+}
+
+/* styles the after school fun title */
+.header h1 {
+  margin: 0;
+  font-size: 33px;
+  font-style: italic;
+}
+
+/* styles the buy lessons button */
+.header button {
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+  border-radius: 33px;
+  padding: 14px 27px;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+/* makes the cart button appear inactive when empty */
+.header button:disabled {
+  opacity: 0.48;
+  cursor: not-allowed;
+}
+
+/* HOMEPAGE */
+
+/* centres the welcome message and button */
+.home-page {
+  min-height: 75vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 45px;
+}
+
+/* styles the homepage welcome heading */
+.home-page h2 {
+  font-size: 38px;
+  color: #112b57;
+  margin-bottom: 18px;
+}
+
+/* styles the homepage description */
+.home-page p {
+  font-size: 19px;
+  line-height: 1.6;
+  max-width: 650px;
+  margin-bottom: 28px;
+}
+
+/* styles the explore activities button */
+.home-page button {
+  background-color: #112b57;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 15px 30px;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+/* changes the button colour when hovered over */
+.home-page button:hover {
+  background-color: #3266a8;
+}
+
+/* ACTIVITIES PAGE */
+
+/* adds spacing around the activities page */
+.activities-page {
+  padding: 30px 45px;
+}
+
+/* styles the all activities heading */
+.activities-page h2 {
+  text-align: center;
+  font-size: 36px;
+  color: #112b57;
+  margin: 25px 0 30px;
+}
+
+/* styles the back to home button */
+.activities-page > button {
+  background-color: #112b57;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 13px 25px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* changes the button colour when hovered over */
+.activities-page > button:hover {
+  background-color: #3266a8;
+}
+
+
+/* LESSON CARDS */
+
+/* displays lesson cards in a vertical list */
+.lesson-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 23px;
+  margin-top: 25px;
+}
+
+/* creates a horizontal white card for each lesson */
+.lesson-card {
+  background-color: white;
+  border-radius: 23px;
+  padding: 23px;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  box-shadow: 0 5px 14px rgba(17, 43, 87, 0.13);
+}
+
+/* LESSON IMAGES */
+
+/* gives all lesson images the same size and rounded corners */
+.lesson-image {
+  width: 195px;
+  height: 165px;
+  object-fit: contain;
+  background-color: #edf6ff;
+  border-radius: 30px;
+  flex-shrink: 0;
+}
+
+/* LESSON INFORMATION */
+
+/* allows the lesson details to fill the available space */
+.lesson-info {
+  flex: 1;
+  min-width: 0;
+}
+
+/* styles the lesson subject heading */
+.lesson-info h3 {
+  font-size: 25px;
+  color: #112b57;
+  margin: 0 0 13px;
+}
+
+/* styles the location, price and available spaces */
+.lesson-info p {
+  background-color: #e5f2fc;
+  padding: 9px 14px;
+  border-radius: 23px;
+  margin: 7px 0;
+  font-size: 16px;
+}
+
+
+/* ADD TO CART BUTTONS */
+
+/* styles the add to cart button on each lesson */
+.lesson-card button {
+  background-color: #112b57;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 15px 24px;
+  font-size: 16px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* changes the button colour when hovered over */
+.lesson-card button:hover:not(:disabled) {
+  background-color: #3266a8;
+}
+
+/* makes the button appear inactive when no spaces remain */
+.lesson-card button:disabled {
+  background-color: #aabbd0;
+  cursor: not-allowed;
+}

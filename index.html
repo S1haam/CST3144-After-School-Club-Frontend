@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>After School Fun</title>
 
+    <!-- loads styling -->
+    <link rel="stylesheet" href="style.css" />
+
     <!-- loads vue into the webpage -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   </head>
@@ -13,7 +16,7 @@
     <!-- vue controls the content inside this element -->
     <div id="app">
       <!-- header displayed on every page -->
-      <header class="site-header">
+      <header class="header">
         <h1>After School Fun</h1>
 
         <!-- open/closes shop cart -->
@@ -39,7 +42,7 @@
       </main>
 
       <!-- activities page -->
-      <main v-else-if="currentPage === 'activities'">
+      <main v-else-if="currentPage === 'activities'" class="activities-page">
         <!-- returns to the homepage -->
         <button v-on:click="changePage('home')">Back to Home</button>
 
@@ -56,13 +59,18 @@
               :alt="lesson.subject"
             />
 
-            <h3>{{ lesson.subject }}</h3>
+            <!-- lesson info -->
 
-            <p>Location: {{ lesson.location }}</p>
+            <!-- groups the lesson details together -->
+            <div class="lesson-info">
+              <h3>{{ lesson.subject }}</h3>
 
-            <p>Price: £{{ lesson.price }}</p>
+              <p>Location: {{ lesson.location }}</p>
 
-            <p>Available Spaces: {{ lesson.spaces }}</p>
+              <p>Price: £{{ lesson.price }}</p>
+
+              <p>Available Spaces: {{ lesson.spaces }}</p>
+            </div>
 
             <!-- adds one lesson space to the shopping cart -->
             <!-- the button is disabled when no spaces remain -->
@@ -78,28 +86,19 @@
 
       <!-- displays the shopping cart when the cart page is selected -->
       <main v-else-if="currentPage === 'cart'" class="cart-page">
+        <h2>YOUR SHOPPING CART</h2>
 
-<h2>YOUR SHOPPING CART</h2>
+        <!-- displays each selected lesson in the shopping cart -->
+        <div v-for="(lessonId, index) in cart" :key="index">
+          <!-- displays the subject of the selected lesson -->
+          <p>{{ lessons.find(lesson => lesson.id === lessonId).subject }}</p>
 
-<!-- displays each selected lesson in the shopping cart -->
-<div v-for="(lessonId, index) in cart" :key="index">
+          <!-- removes 1 lesson space from the shopping cart -->
+          <button v-on:click="removeFromCart(index)">Remove</button>
+        </div>
 
-  <!-- displays the subject of the selected lesson -->
-  <p>
-    {{ lessons.find(lesson => lesson.id === lessonId).subject }}
-  </p>
-
-  <!-- removes 1 lesson space from the shopping cart -->
-  <button v-on:click="removeFromCart(index)">
-    Remove
-  </button>
-
-</div>
-
- <!--returns the user to activities page  -->
- <button v-on:click="changePage('activities')">
-  Continue Shopping 
- </button>
+        <!--returns the user to activities page  -->
+        <button v-on:click="changePage('activities')">Continue Shopping</button>
       </main>
     </div>
 
