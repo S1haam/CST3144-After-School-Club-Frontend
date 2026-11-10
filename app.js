@@ -12,7 +12,8 @@ const app = createApp({
           subject: "Mathematics",
           location: "Edmonton Green",
           price: 25,
-          spaces: 5
+          spaces: 5,
+          image:"images/mathematics.jpg"
         },
 
         {
@@ -20,7 +21,8 @@ const app = createApp({
           subject: "English",
           location: "Enfield Town",
           price: 10,
-          spaces: 5
+          spaces: 5,
+          image:"images/english.jpg"
         },
 
         {
@@ -28,7 +30,8 @@ const app = createApp({
           subject: "Science",
           location: "Waltham Cross",
           price: 25,
-          spaces: 5
+          spaces: 5,
+          image:"images/science.jpg"
         },
 
         {
@@ -36,7 +39,8 @@ const app = createApp({
           subject: "ICT",
           location: "Hertfordshire",
           price: 25,
-          spaces: 5
+          spaces: 5,
+          image:"images/ict.jpg"
         },
 
         {
@@ -44,7 +48,8 @@ const app = createApp({
           subject: "PE",
           location: "Cheshunt",
           price: 10,
-          spaces: 5
+          spaces: 5,
+          image:"images/pe.jpg"
         },
 
         {
@@ -52,7 +57,8 @@ const app = createApp({
           subject: "Drama",
           location: "Edmonton Green",
           price: 10,
-          spaces: 5
+          spaces: 5,
+          image:"images/drama.jpg"
         },
 
         {
@@ -60,7 +66,8 @@ const app = createApp({
           subject: "French",
           location: "Enfield Town",
           price: 10,
-          spaces: 5
+          spaces: 5,
+          image:"images/french.jpg"
         },
 
         {
@@ -68,7 +75,8 @@ const app = createApp({
           subject: "British Sign Language",
           location: "Waltham Cross",
           price: 10,
-          spaces: 5
+          spaces: 5,
+          image:"images/bsl.jpg"
         },
 
         {
@@ -76,7 +84,8 @@ const app = createApp({
           subject: "Art",
           location: "Hertfordshire",
           price: 10,
-          spaces: 5
+          spaces: 5,
+          image:"images/art.jpg"
         },
 
         {
@@ -84,7 +93,8 @@ const app = createApp({
           subject: "Food Tech",
           location: "Cheshunt",
           price: 15,
-          spaces: 5
+          spaces: 5,
+          image:"images/food.jpg"
         },
       ],
     };

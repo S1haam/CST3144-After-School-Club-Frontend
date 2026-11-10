@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>After School Club</title>
+    <title>After School Fun</title>
 
     <!-- loads vue into the webpage -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -12,10 +12,14 @@
   <body>
     <!-- vue here is controlled by vue -->
     <div id="app">
-      <h1>After School Club</h1>
+      <h1>After School Fun</h1>
 
       <!-- repeats lesson info for every lesson in array -->
       <div v-for="lesson in lessons" :key="lesson.id">
+
+        <!--displays image -->
+        <img :src="lesson.image" :alt="lesson.subject" width="200">
+
         <h2>{{ lesson.subject }}</h2>
         <p>Location: {{ lesson.location }}</p>
         <p>Price: £{{ lesson.price }}</p>
